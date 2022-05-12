@@ -4,20 +4,20 @@ using namespace std;
 
 int det(int m[MAX][MAX], int car){								 // Calcolo del determinante
     if (car == 1){
-		determinante = m[0][0];                                  	 // Valuto il caso di cardinalità pari ad uno
+		determinante = m[0][0];                                  	 // Valuto il caso di cardinalitÃ  pari ad uno
 	}		
     
     
-   	else{if (car == 2){                                          	// Valuto il caso di cardinalità pari a due
+   	else{if (car == 2){                                          	// Valuto il caso di cardinalitÃ  pari a due
         determinante = m[1][1]*m[0][0]-m[0][1]*m[1][0];
 			}
         
         
-    	else {                                                   	// Valuto il caso di cardinalità > 2 riducendo la matrice ad una 2x2
+    	else {                                                   	// Valuto il caso di cardinalitÃ  > 2 riducendo la matrice ad una 2x2
        		for (int row = 0; row < car; row++) {
             	int sub_m[MAX][MAX];
             	
-           		//Sottomatrice di ordine "car-1"
+           		
            		for (int i = 0; i < car-1; i++) {
                 	for (int j = 0; j < car-1; j++) {
                    		sub_row = (i < row ? i : i+1);
@@ -28,10 +28,10 @@ int det(int m[MAX][MAX], int car){								 // Calcolo del determinante
             
             
             if (row % 2 == 0){										// Valuto il segno della sottomatrice ricordando che
-             determinante= m[row][0]*det(sub_m, car-1);         	// vale + per gli elementi pari e - per i dispari
+             determinante-= m[row][0]*det(sub_m, car-1);         	// vale + per gli elementi pari e - per i dispari
 			}
 			else{
-            determinante= m[row][0]*det(sub_m, car-1);
+            determinante+= m[row][0]*det(sub_m, car-1);
 			}
 			 
   
