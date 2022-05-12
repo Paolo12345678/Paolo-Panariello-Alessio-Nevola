@@ -28,10 +28,10 @@ int det(int m[MAX][MAX], int car){								 // Calcolo del determinante
             
             
             if (row % 2 == 0){										// Valuto il segno della sottomatrice ricordando che
-             determinante-= m[row][0]*det(sub_m, car-1);         	// vale + per gli elementi pari e - per i dispari
+             determinante+= m[row][0]*det(sub_m, car-1);         	// vale + per gli elementi pari e - per i dispari
 			}
 			else{
-            determinante+= m[row][0]*det(sub_m, car-1);
+            determinante-= m[row][0]*det(sub_m, car-1);
 			}
 			 
   
